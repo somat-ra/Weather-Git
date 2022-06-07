@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>She Codes Plus</title>
+    <meta charset="UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+      button {
+        display: block;
+        margin: 0 auto;
+        padding: 10px 20px;
+        color: aliceblue;
+        background-color: green;
+      }
+      button:hover {
+        background-color: aliceblue;
+        color: green;
+        cursor: pointer;
+      }
+      h1 {
+        text-align: center;
+        font-size: large;
+        margin-top: 65px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <button>Get current temperature</button>
+    <h1></h1>
+
+    <script>
+      function currentPosition(position) {
+        let h1 = document.querySelector("h1");
+        let lat = position.coords.latitude;
+        let lon = position.coords.longitude;
+        let getTemperature = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=602c4f12fdc5707a356fb2740b6b3e24&units=metric`;
+        axios.get(getTemperature).then(function temp(response) {
+          let place = response.data.name;
+          let thisTemp = Math.round(response.data.main.temp);
+          h1.innerHTML = `The temperature in ${place} is ${thisTemp}˚C`;
+        });
+      }
+
+      function clickButton() {
+        navigator.geolocation.getCurrentPosition(currentPosition);
+      }
+
+      let button = document.querySelector("button");
+      button.addEventListener("click", clickButton);
+    </script>
+  </body>
+</html>

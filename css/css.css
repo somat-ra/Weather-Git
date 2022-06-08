@@ -59,10 +59,14 @@ body {
   bottom: 12px;
 }
 
+.container,
 .weather-box-container {
-  border: 1px solid #fdcc03;
-  border-radius: 10px;
   max-width: 600px;
   padding: 20px;
   margin: 30px auto;
+}
+
+.weather-box-container {
+  border: 1px solid #fdcc03;
+  border-radius: 10px;
 }

@@ -44,7 +44,7 @@ body {
 }
 
 .city-searched-more-info-1,
-.city-searched-more-info-2, 
+.city-searched-more-info-2,
 .wind {
   font-size: 13px;
 }
@@ -59,7 +59,7 @@ body {
   bottom: 12px;
 }
 
-.container {
+.weather-box-container {
   border: 1px solid #fdcc03;
   border-radius: 10px;
   max-width: 600px;
